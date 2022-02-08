@@ -1,4 +1,7 @@
 package com.company;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
 
 import static com.company.Lesson01.*;
 import static com.company.Lesson02.*;
@@ -25,6 +28,9 @@ import static com.company.Lesson22.*;
 import static com.company.Lesson23.*;
 import static com.company.Lesson24.*;
 import static com.company.Lesson25.*;
+import static com.company.Lesson16.SetOperations.*;
+import static com.company.Lesson17.SortAlgorithms.*;
+import static com.company.Lesson17.StudentAverageComparator.*;
 
 public class Main {
 
@@ -138,11 +144,123 @@ public class Main {
 //        System.out.println("Car vs Boat\n"+car.compareTo(boat));
 //        Elesson();
 
-        //Lesson 12
-        Slesson(12);
+//        //Lesson 12
+//        Slesson(12);
+//        //Using our implemention of Link
+//        List<Integer> myList = new DynamicArray<Integer>();
+//        //We can set the array initial size
+//        List<Integer> myListWithSize = new DynamicArray<Integer>(5);
+//        myList.add(12);
+//        myList.add(13);
+//        myList.add(14);
+//        myListWithSize.add(12);
+//        myListWithSize.add(14);
+//        myListWithSize.add(1,13);
+//        System.out.println(myList+"\n"+myListWithSize);
+//        System.out.println("Comapre the 2 dymanic arrays: "+myList.equals(myListWithSize));
+//        System.out.println("All the primes up to 31:\n"+primesDynamicArray(31));
+//        Elesson();
 
+//        //Lesson 13
+//        Slesson(13);
+//        PhoneNumber someNumber = new PhoneNumber("0544444435");
+//        // we have 2 classes named record, we need to tell which one we using
+//        Lesson13.Record<PhoneNumber> john = new Lesson13.Record<PhoneNumber>("John", someNumber);
+//        System.out.println(john);
+//        System.out.println(john instanceof Lesson13.Record);
+//        System.out.println(john instanceof List);
+//        System.out.println(john instanceof Object);
+//
+//        ContactPerson dana = new ContactPerson("dana",new PhoneNumber("0501122334"),"Co-worker");
+//        System.out.println(dana);
+//        Elesson();
+
+//        //Lesson 14
+//        Slesson(14);
+//        Lesson14.DynamicIntegerArray lst = new Lesson14.DynamicIntegerArray();
+//        lst.add(100);lst.add(90);lst.add(77);lst.add(85);lst.add(91);
+//        System.out.println(lst);
+//        System.out.println(lst.sum()+"/"+lst.size()+"="+lst.avg());
+//        Elesson();
+
+//        //Lesson 15
+//        Slesson(15);
+//        LinkedList<String> lessons = new LinkedList<>();
+//        String first = "1th lesson";
+//        lessons.addFirst(first);
+//        for(int i=2; i<26;i++){
+//            lessons.add(i+"th lesson");
+//        }
+//        System.out.println(lessons);
+//        System.out.println(lessons.get(6)+"->"+lessons.get(7));
+//
+//        System.out.println("MISTER FIBI!");
+//        Link<String> fib1 = new Link<>("0");
+//        LinkedListIterator<String> iterlink = new LinkedListIterator<String>(fib1);
+//        Link<String> fib2 = new Link<>(String.valueOf(fib(1)));
+//        Link<String> fib3 = new Link<>(String.valueOf(fib(2)));
+//        Link<String> fib4 = new Link<>(String.valueOf(fib(3)));
+//        Link<String> fib5 = new Link<>(String.valueOf(fib(4)));
+//        Link<String> fib6 = new Link<>(String.valueOf(fib(5)));
+//        fib1.setNext(fib2);fib2.setNext(fib3);fib3.setNext(fib4);fib4.setNext(fib5);fib5.setNext(fib6);
+//        while(iterlink.hasNext()){
+//            System.out.println(iterlink.next());
+//        }
+//        Elesson();
+
+//        //Lesson 16
+//        Slesson(16);
+//        System.out.println("for(<T> element: iterableObject)");
+//        Set<Double> N = new SetAsDynamicArray<Double>();
+//        for(double i=0; i<11;i++){
+//            N.add(i); //autoboxing
+//        }
+//        Set<Double> Q = new SetAsDynamicArray<Double>();
+//        for(double i=0;i<11;i=i+0.5)
+//            Q.add(i);
+//        System.out.println(N+"\n"+Q);
+//        System.out.println("Uninon"+union(N,Q));
+//        System.out.println("Intersection"+intersection(N,Q));
+//        Iterator<Double> sub = subtraction(Q,N).iterator();
+//        System.out.println("Q-N:");
+//        while(sub.hasNext()){
+//            System.out.println(sub.next());
+//        }
+//        Elesson();
+
+//        //Lesson 17
+//        Slesson(17);
+//        System.out.println("FIBIIIIII using iterator");
+//        FibonacciIterator fibi = new FibonacciIterator(15);
+//        for(int i=0;i<7;i++){
+//            System.out.println(fibi.next());
+//        }
+//        System.out.println("Comparable - 'aa' vs 'ab' or '234' vs '243'\n Let's sort an array of ints with it");
+//        Integer[] simpleArrayAtLast = {2,6,-1,3,3213,1};
+//        Iterator<Integer> arrBefore = Arrays.stream(simpleArrayAtLast).iterator();
+//        while(arrBefore.hasNext())
+//            System.out.print(arrBefore.next()+" ");
+//        insertionSort(simpleArrayAtLast);
+//        System.out.println("\nAnd...");
+//        Iterator<Integer> arrAfter = Arrays.stream(simpleArrayAtLast).iterator();
+//        while(arrAfter.hasNext())
+//            System.out.print(arrAfter.next()+" ");
+//        System.out.println("\n\nCompartor - Student1 vs Student2, WE need to decide what to comapre.");
+//        System.out.println("Let's comapre student by their average.");
+//        Student student1 = new Student("Miki",85);
+//        Student student2 = new Student("Ahuva", 41);
+//        Student student3 = new Student("Tuplin", 99);
+//        System.out.println("Comapre our students grades:");
+//        Comparator<Student> avg = new StudentAverageComparator();
+//        Student[] lst = {student1,student2,student3};
+//        insertionSort(lst,avg);
+//        for(Student st:lst)
+//            System.out.println(st);
+//        Elesson();
+
+        //Lesson 18
+        Slesson(18);
         Elesson();
-
 
     }
 
