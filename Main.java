@@ -300,20 +300,32 @@ public class Main {
 //
 //        Elesson();
 
-        //Lesson 20
-        Slesson(20);
-        Stack<String> stack = new StackAsDynamicArray<>();
-        stack.push("!");stack.push("K");stack.push("C");stack.push("A");stack.push("T");stack.push("S");
-        while(!stack.isEmpty())
-            System.out.print(stack.pop() + " -> ");
-        System.out.println("\nQueue:");
-        QueueAsLinkedList<Integer> queue = new QueueAsLinkedList<Integer>();
-        for(int i=0;i<10;i++){
-            queue.enqueue(fib(i));}
-        while(!queue.isEmpty())
-            System.out.println(queue.dequeue());
+//        //Lesson 20 **
+//        Slesson(20);
+//        Stack<String> stack = new StackAsDynamicArray<>();
+//        stack.push("!");stack.push("K");stack.push("C");stack.push("A");stack.push("T");stack.push("S");
+//        while(!stack.isEmpty())
+//            System.out.print(stack.pop() + " -> ");
+//        System.out.println("\nQueue:");
+//        QueueAsLinkedList<Integer> queue = new QueueAsLinkedList<Integer>();
+//        for(int i=0;i<10;i++){
+//            queue.enqueue(fib(i));}
+//        while(!queue.isEmpty())
+//            System.out.println(queue.dequeue());
+//
+//
+//        Elesson();
 
-
+        //Lesson 21
+        Slesson(21);
+        StackOperator[] postfixExpr = {new IntConstantOperator(7),new IntConstantOperator(7),
+                new IntMultOperator(),new IntConstantOperator(1),
+                new IntPlusOperator(),new IntConstantOperator(5),
+                new IntDivideOperator(),new IntConstantOperator(2),
+                new IntMultOperator(),new IntConstantOperator(2),new IntPlusOperator()};
+        for(StackOperator me:postfixExpr)
+            System.out.print(me+" ");
+        System.out.println("= "+evaluate2(postfixExpr));
         Elesson();
 
     }
