@@ -258,8 +258,62 @@ public class Main {
 //            System.out.println(st);
 //        Elesson();
 
-        //Lesson 18
-        Slesson(18);
+//        //Lesson 18
+//        Slesson(18);
+//        Access access = new Access("Dont ask dont tell");
+//        Access.publico_static();
+//        access.publico();
+//        access.to_privato();
+//        Access.protcto();
+//
+//        System.out.println("TREES!");
+//        BinaryTree<Character> abc = new BinaryTree<Character>();
+//        abc.insert('A');abc.insert('B');abc.insert('C');abc.insert('D');
+//        if(!abc.contains('E')) abc.insert('E');
+//        System.out.println("Print in order: ");abc.printInOrder();
+//        System.out.println("Print pre order: ");abc.printPreOrder();
+//        System.out.println("Print post order: ");abc.printPostOrder();
+//        System.out.println("abc height: "+abc.height()+"; abc size: "+abc.size());
+//
+//        System.out.println("\nSingle node,have data and connection to right and/or left");
+//        BinaryNode<String> node = new BinaryNode<String>("head");
+//        node.insert("right arm?");
+//        node.insert("left arm?");
+//        node.printPreOrder();
+//
+//        Elesson();
+
+
+//        //Lesson 19
+//        Slesson(19);
+//        System.out.println("TREESSSSS");
+//        System.out.println("Searches cost:\nsorted array - log(n)\nlinklist - n" +
+//                "\nbinary tree - tree size\nbinary search tree - tree height");
+//        System.out.println("Binary search tree. left is small. right is big.");
+//        // compartor of strings so we can compare nodes in our tree
+//        Comparator<String> strcompr = new StringComparator();
+//        //lets try again the abc tree
+//        BinarySearchTree<String> abc = new BinarySearchTree<>(strcompr);
+//        abc.insert("A");abc.insert("F");abc.insert("E");abc.insert("B");
+//        abc.insert("D");abc.insert("C");
+//        abc.printInOrder();
+//
+//        Elesson();
+
+        //Lesson 20
+        Slesson(20);
+        Stack<String> stack = new StackAsDynamicArray<>();
+        stack.push("!");stack.push("K");stack.push("C");stack.push("A");stack.push("T");stack.push("S");
+        while(!stack.isEmpty())
+            System.out.print(stack.pop() + " -> ");
+        System.out.println("\nQueue:");
+        QueueAsLinkedList<Integer> queue = new QueueAsLinkedList<Integer>();
+        for(int i=0;i<10;i++){
+            queue.enqueue(fib(i));}
+        while(!queue.isEmpty())
+            System.out.println(queue.dequeue());
+
+
         Elesson();
 
     }

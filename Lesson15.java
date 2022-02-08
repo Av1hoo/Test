@@ -5,18 +5,18 @@ import java.util.NoSuchElementException;
 
 public class Lesson15 {
 
-    public static class Link<E>{
+    public static class Link <E>{
         // ---------------------- fields ----------------------
         private E data;
         private Link<E> next;
 
         // ---------------------- constructors ----------------------
-        public Link(E data, Link<E> next){
+        public Link(E data, Link<E> next) {
             this.data = data;
             this.next = next;
         }
 
-        public Link(E data){
+        public Link(E data) {
             this(data, null);
         }
 
@@ -24,7 +24,8 @@ public class Lesson15 {
         public Link<E> getNext() {
             return next;
         }
-        public void setNext(Link<E> next) {
+
+        public void setNext(Link<E> next){
             this.next = next;
         }
 
@@ -33,19 +34,18 @@ public class Lesson15 {
         }
 
         public E setData(E data) {
-            // return the prev data
             E tmp = this.data;
             this.data = data;
             return tmp;
         }
 
-        @Override
         public String toString() {
             return data.toString();
         }
+
     }
 
-    public static class LinkedList <T> implements List<T> {
+    public static class LinkedList<T> implements List<T> {
 
         // ---------------------- fields ----------------------
         private Link<T> first;
@@ -53,9 +53,6 @@ public class Lesson15 {
         // ---------------------- constructors ----------------------
         public LinkedList(){
             first = null;
-        }
-        public LinkedList(T initial){
-            addFirst(initial);
         }
 
         // ---------------------- methods ----------------------
@@ -90,12 +87,6 @@ public class Lesson15 {
                 current = current.getNext();
             }
             return (T) current.getData();
-        }
-
-        @Override
-        //Must implement from the iterface
-        public T remove(int index) {
-            return null;
         }
 
         //Returns a String representing this object
@@ -160,6 +151,25 @@ public class Lesson15 {
             return prev;
         }
 
+        public T remove(int index) {
+            if(!rangeCheck(index))
+                throw new IllegalArgumentException("Index: " + index + ", Size: " + size());
+            Link<T> current = first;
+            Link<T> prev = current;
+            while (index > 0) {
+                index = index - 1;
+                prev = current;
+                current = current.getNext();
+            }
+            T ans = (T) current.getData();
+            if (first == current) {
+                first = first.getNext();
+            }
+            else {
+                prev.setNext(current.getNext());
+            }
+            return ans;
+        }
         //Inserts the specified element at the specified position in this list
         public void add(int index, T element) {
             if(!rangeCheck(index))
@@ -208,7 +218,6 @@ public class Lesson15 {
                 }
                 current.setNext(newLink);
             }
-            return;
         }
 
         // returns true iff the given index is in range
@@ -218,10 +227,8 @@ public class Lesson15 {
             return false;
         }
 
-        @Override
-        //Must implement from the iterface
         public Iterator<T> iterator() {
-            return null;
+            return new LinkedListIterator<T>(first);
         }
     }
 
